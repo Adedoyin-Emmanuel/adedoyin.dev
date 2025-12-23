@@ -38,7 +38,6 @@ const HallOfFame = () => {
 
       <Separator className="my-6" />
 
-      {/* Academic Milestones */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Academic Milestones</h2>
         <div className="flex mb-4">
@@ -59,7 +58,6 @@ const HallOfFame = () => {
 
       <Separator className="my-6" />
 
-      {/* Professional Achievements */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Professional Achievements</h2>
         <ul className="list-disc list-inside">
@@ -159,7 +157,6 @@ const HallOfFame = () => {
 
       <Separator className="my-6" />
 
-      {/* Open Source Contributions */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Open Source Contributions</h2>
         <ul className="list-disc list-inside">
@@ -202,7 +199,6 @@ const HallOfFame = () => {
 
       <Separator className="my-6" />
 
-      {/* Testimonials */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Testimonials</h2>
         <blockquote className="italic text-gray-600 border-l-4 pl-4">
