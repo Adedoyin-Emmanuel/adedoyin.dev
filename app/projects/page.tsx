@@ -1,12 +1,11 @@
 "use client";
-import React from "react";
-import { Playfair_Display } from "next/font/google";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import gsap from "gsap";
-import Seo from "@/app/components/seo";
+import React from "react";
+import Link from "next/link";
+import { Playfair_Display } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+import ColoredLink from "../components/link";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -14,126 +13,21 @@ const playFairDisplay = Playfair_Display({
 });
 
 const Projects = () => {
-  const [selectedTag, setSelectedTag] = React.useState<string | null>("All");
-  const [searchQuery, setSearchQuery] = React.useState("");
-
   const projects = [
     {
+      name: "Lexi Contract",
+      description:
+        "Lexicontract is a tool that helps users understand their contracts in seconds.",
+      url: "https://lexicontract.com",
+      image: "https://lexicontract.com/logo.png",
+    },
+    {
       name: "Holytab",
-      tag: "Extension",
       description:
-        "Fresh, Bible-centered confession on every new tab. Stay inspired and rooted in faith throughout your day",
-      languages: ["TypeScript", "JavaScript", "Chrome Extension"],
-      url: "https://holytab.adedoyin.dev",
+        "Transform every new tab into a moment of spiritual reflection.",
+      url: "https://holytab.space",
+      image: "https://holytab.space/logo.png",
     },
-    {
-      name: "Codesharp",
-      tag: "Extension",
-      description:
-        "Code Sharp is a VsCode extension tailored for .NET developers, designed to simplify the creation of C# files.",
-      languages: ["TypeScript", "C#", "JavaScript"],
-      url: "https://codesharp.adedoyin.dev",
-    },
-    {
-      name: "Methane CLI",
-      tag: "CLI",
-      description:
-        "Methane is a CLI tool that helps developers easily create React components, pages or NextJS components, pages, dynamic pages and service worker files with boilerplate codes. It also comes with extra configuration that allows you to choose either JavaScript or TypeScript templates.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/methane-cli",
-    },
-    {
-      name: "Telebot",
-      tag: "Bot",
-      description:
-        "Telebot is a telegram bot starter kit. Built on the Telegraf Framework. This template allows you to build small simple bots to complex bots with ease.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/telebot",
-    },
-    {
-      name: "Squad JS SDK",
-      tag: "SDK",
-      description:
-        "Squad JavaScript SDK provides a convenient interface for interacting with Squad Payment Gateway in your applications.",
-      languages: ["TypeScript"],
-      url: "https://github.com/adedoyin-emmanuel/squad-js-sdk",
-    },
-    {
-      name: "Fotograph",
-      tag: "Desktop App",
-      description:
-        "Fotograph is an open source powerful image manipulation software with a variety of tools for image conversion, bulk image downloading, AI-based image generation, background removal, image resizing, and compression.",
-      languages: ["TypeScript"],
-      url: "https://fotograph.vercel.app",
-    },
-    {
-      name: "Book Management API",
-      tag: "API",
-      description:
-        "A simple API with ASP.NET to learn AutoMapper, Repository Pattern and Unit of Work.",
-      languages: ["C#"],
-      url: "https://github.com/adedoyin-emmanuel/book-management-api",
-    },
-    {
-      name: "Caresync API",
-      tag: "API",
-      description:
-        "CareSync API, an application bridging healthcare with technology.",
-      languages: ["TypeScript"],
-      url: "https://gitlab.com/adedoyin-emmanuel/caresync-api",
-    },
-    {
-      name: "Caresync",
-      tag: "Web App",
-      description:
-        "CareSync is a web application that helps patients and doctors manage their health records and appointments.",
-      languages: ["TypeScript", "NextJS", "DaisyUI"],
-      url: "https://gitlab.com/adedoyin-emmanuel/caresync",
-    },
-    {
-      name: "Flames",
-      tag: "Web App",
-      description:
-        "Flames is a web application that helps users check their compatibility with their crushes.",
-      languages: ["TypeScript", "NextJS", "ShadcnUI"],
-      url: "https://flames.brimble.app",
-    },
-    {
-      name: "Linq",
-      tag: "Web App",
-      description:
-        "Linq is an open-source tool that simplifies social sharing by allowing users to generate shareable links for their content.",
-      languages: ["TypeScript", "NextJS", "ShadcnUI"],
-      url: "https://uselinq.vercel.app",
-    },
-    {
-      name: "Blazor Weather App",
-      tag: "Web App",
-      description: "A weather app built with Blazor and OpenWeatherAPI.",
-      languages: ["C#", "Blazor", "DaisyUI"],
-      url: "https://github.com/adedoyin-emmanuel/blazor-weather-app",
-    },
-    {
-      name: "Taskify",
-      tag: "Web App",
-      description:
-        "Taskify is a simple task management application that helps users manage their tasks and to-do lists.",
-      languages: ["C#", "ASP.NET", "DaisyUI", "DOTNET"],
-      url: "https://github.com/adedoyin-emmanuel/taskify",
-    },
-    {
-      name: "Prokeep API",
-      tag: "API",
-      description:
-        "A simple product API built with ASP.NET CORE, Entity Framework, and Postgres SQL.",
-      languages: ["C#", "ASP.NET", "EFCORE", "MYSQL"],
-      url: "https://github.com/adedoyin-emmanuel/prokeep-api",
-    },
-  ];
-
-  const tags = [
-    "All",
-    ...Array.from(new Set(projects.map((project) => project.tag))),
   ];
 
   React.useEffect(() => {
@@ -142,88 +36,81 @@ const Projects = () => {
       { opacity: 0, y: 100 },
       { opacity: 1, y: 0, duration: 2, ease: "power3.out" }
     );
+
+    gsap.fromTo(
+      ".project-card",
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        delay: 0.2,
+      }
+    );
   }, []);
 
-  const filteredProjects = projects.filter((project) => {
-    const matchesTag = selectedTag === "All" || project.tag === selectedTag;
-    const matchesSearch = searchQuery
-      ? project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchQuery.toLowerCase())
-      : true;
-    return matchesTag && matchesSearch;
-  });
-
   return (
-    <div className="my-4 content-section">
-      <Seo title="My Projects" description="Projects I've built overtime" />
+    <div className="my-8 md:my-12 content-section w-full md:px-0">
       <h1
         className={cn(
           playFairDisplay.className,
-          "lg:text-[50px] text-3xl text-center"
+          "text-3xl lg:text-[50px] mb-3 font-medium text-center"
         )}
       >
         My Projects
       </h1>
 
-      <div className="mx-auto flex items-center justify-center md:w-[600px] mb-4">
-        <span className="text-gray-600 mx-1 my-10">
+      <div className="w-full mb-10 text-center">
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed italic">
           "Behind every great solution is a developer who never gave up on a
-          challenging problem." —{" "}
-          <Link href={"/projects"} className="underline inline text-black">
-            Adedoyin Emmanuel
-          </Link>
+          challenging problem."
+        </p>
+        <span className="text-sm text-muted-foreground/80 mt-2 block">
+          — Adedoyin Emmanuel
         </span>
       </div>
 
-      <Input
-        placeholder="Search projects..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="mb-4 w-full max-w-md mx-auto"
-      />
-
-      <div className="flex flex-wrap justify-center mb-4">
-        {tags.map((tag) => (
-          <button
-            key={tag}
-            className={`px-4 py-2 m-2 text-sm rounded-full ${
-              selectedTag === tag ? "bg-black text-white" : "bg-gray-200"
-            }`}
-            onClick={() => setSelectedTag(tag)}
+      <div className="grid grid-cols-1 gap-3 w-full md:max-w-2xl">
+        {projects.map((project, index) => (
+          <Link
+            href={project.url.trim()}
+            key={index}
+            target="_blank"
+            className="project-card group block outline-none w-full"
           >
-            {tag}
-          </button>
+            <div className="flex items-center gap-4 p-3 md:p-4 rounded-lg border bg-card/50 hover:bg-secondary/40 transition-all duration-300">
+              <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0 overflow-hidden rounded-md bg-background/80 border flex items-center justify-center p-2">
+                <img
+                  src={project.image}
+                  alt={project.name}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+
+              <div className="flex flex-col min-w-0 flex-1 py-1">
+                <div className="flex items-center justify-between gap-2 mb-0.5">
+                  <h3 className="font-semibold text-base md:text-lg text-foreground tracking-tight group-hover:text-primary transition-colors">
+                    {project.name}
+                  </h3>
+                </div>
+                <p className="text-sm text-muted-foreground/80 font-normal leading-normal line-clamp-2">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto p-2">
-        {filteredProjects.map((project) => (
-          <div key={project.name} className="border p-4 rounded-lg">
-            <h2 className="text-xl font-bold">{project.name}</h2>
-            <p className="text-sm text-gray-600">{project.description}</p>
-
-            <div className="mt-3 flex flex-wrap gap-2">
-              {project.languages.map((language) => (
-                <span
-                  key={language}
-                  className="bg-gray-100 text-gray-700 px-2 py-1 text-xs rounded-full"
-                >
-                  {language}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-3">
-              <Link
-                href={project.url}
-                className="text-black underline flex items-center"
-              >
-                Visit Project{" "}
-                <ArrowUpRight strokeWidth={1.5} width={20} height={20} />
-              </Link>
-            </div>
-          </div>
-        ))}
+      <div className="mt-8">
+        <ColoredLink
+          href="https://github.com/adedoyin-emmanuel"
+          className="inline-flex items-center gap-2 transition-colors group text-black"
+        >
+          Find others on Github
+        </ColoredLink>
       </div>
     </div>
   );
