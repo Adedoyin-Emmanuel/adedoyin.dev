@@ -1,12 +1,12 @@
 "use client";
+import gsap from "gsap";
 import React from "react";
-import { Playfair_Display } from "next/font/google";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
+
+import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
-import gsap from "gsap";
-import Seo from "@/app/components/seo";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -24,10 +24,6 @@ const HallOfFame = () => {
 
   return (
     <div className="my-8 content-section">
-      <Seo
-        title="Hall Of Fame"
-        description="Hall Of Fame Adedoyin Emmanuel Adeniyi - CS, Software Engineer"
-      />
       <h1
         className={cn(
           playFairDisplay.className,
@@ -68,6 +64,34 @@ const HallOfFame = () => {
         <h2 className="text-2xl font-bold mb-4">Professional Achievements</h2>
         <ul className="list-disc list-inside">
           <li>
+            Software Engineer at{" ("}
+            <Link
+              href="https://nativelyai.com"
+              className="underline text-blue-500"
+              target="_blank"
+            >
+              NativelyAI
+            </Link>{" "}
+            ,{" "}
+            <Link
+              href="https://lablab.ai"
+              className="underline text-blue-500"
+              target="_blank"
+            >
+              LabLab.ai
+            </Link>
+            {")"}, Ex{" "}
+            <Link
+              href="https://punch.cool"
+              className="underline text-blue-500"
+              target="_blank"
+            >
+              {" "}
+              Punch Agency
+            </Link>
+          </li>
+
+          <li>
             ALX Alumni{" "}
             <Link
               href="https://alxafrica.com"
@@ -95,51 +119,10 @@ const HallOfFame = () => {
               className="underline text-blue-500"
               target="_blank"
             >
-              NEAR Web Fusion 2023 Hackathon
+              NEAR Web Fusion Hackathon
             </Link>{" "}
             , developing innovative solutions under tight deadlines.
           </li>
-
-          <li>
-            Led team{" "}
-            <Link
-              href="https://github.com/iyanuloluwa-Miracle/UNICON-BACKEND"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              Unicon
-            </Link>{" "}
-            to a 4th place finish in the{" "}
-            <Link
-              href=" https://squadco.com/hackathon/"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              Squad 2024 Hackathon by GTBank
-            </Link>{" "}
-          </li>
-
-          <li>
-            Received a{" "}
-            <Link
-              href={"https://devpost.com/software/caresync-melncs"}
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              {" "}
-              honorary award
-            </Link>{" "}
-            at{" "}
-            <Link
-              href="https://lec-hacks-2023.devpost.com/"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              NorCal Hacks 2023
-            </Link>{" "}
-            for building an innovative solution.
-          </li>
-
           <li>
             <Link
               href="https://hng.tech"
@@ -153,14 +136,23 @@ const HallOfFame = () => {
           </li>
 
           <li>
-            Built{" "}
+            Won a honorary award at{" "}
             <Link
-              href="https://fotograph.vercel.app"
+              href="https://lablab.ai/event/co-creating-with-gpt-5"
               className="underline text-blue-500"
+              target="_blank"
             >
-              Fotograph
-            </Link>
-            , an image manipulation tool with over 200 users.
+              Co-creating with GPT-5 hackathon.
+            </Link>{" "}
+            I built Lexi (A tool that helps users understand their contracts in
+            seconds){" "}
+            <Link
+              href="https://lexicontract.com"
+              className="underline text-blue-500"
+              target="_blank"
+            >
+              Lexicontract.com
+            </Link>{" "}
           </li>
         </ul>
       </section>
@@ -206,34 +198,6 @@ const HallOfFame = () => {
             , a tool to streamline React/Next.js component creation.
           </li>
         </ul>
-      </section>
-
-      <Separator className="my-6" />
-
-      {/* Recognitions & Awards */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Recognitions & Awards</h2>
-        <p className="text-gray-600">
-          Recognized as one of the{" "}
-          <Link
-            href={
-              "https://github.com/gayanvoice/top-github-users/blob/main/markdown/public_contributions/nigeria.md"
-            }
-            className="underline text-blue-500"
-            target="_blank"
-          >
-            top 3 public contributors
-          </Link>{" "}
-          in Nigeria. Achieved a{" "}
-          <Link
-            href={"https://gitroll.io/profile/uPFiBPYcFdgYi7NKJ3tmo2XBYk902"}
-            className="underline text-blue-500"
-            target="_blank"
-          >
-            top 6% ranking in Nigeria
-          </Link>{" "}
-          on Gitroll.
-        </p>
       </section>
 
       <Separator className="my-6" />

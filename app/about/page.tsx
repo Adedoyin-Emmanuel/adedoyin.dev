@@ -1,12 +1,13 @@
 "use client";
+
+import gsap from "gsap";
 import React from "react";
-import { Playfair_Display } from "next/font/google";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
+
+import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
-import gsap from "gsap";
-import Seo from "@/app/components/seo";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -24,10 +25,6 @@ const About = () => {
 
   return (
     <div className="my-4 content-section">
-      <Seo
-        title="About Me"
-        description="About Adedoyin Emmanuel Adeniyi - CS, Software Engineer"
-      />
       <br />
       <h1
         className={cn(
@@ -77,29 +74,31 @@ const About = () => {
             <Separator className="my-5" />
 
             <p>
-              Currently, I mainly work on Backend Systems
-              (API/Mirco-Services/DB) , Bot Development and Web Scrapping.
+              Currently, I enjoy working on backend systems, bot development,
+              web scraping and automation.
             </p>
 
             <br />
 
             <p>
-              I also build fullstack applications (Web Apps, PWAs). I build
-              fast, seamless and scalable user interfaces along with scaleable
-              backend systems.
+              I also build fullstack applications (Web Apps and Mobile apps). I
+              build fast,accessible and seamless user interfaces along with
+              scaleable backend systems. I'm the dependency that any engineering
+              team can count on to build production ready applications with
+              Godspeed.
             </p>
 
             <br />
 
             <p>
-              I am passionate about open source which is why I make most of my side
-              projects publicly available. My goal is to help others learn from
-              and use the tools I create. I've built serveral libraries, SDKs,
-              CLI tools & BOTs, spanning web-frameworks, payment gateways,
+              I am passionate about open source which is why I make most of my
+              side projects publicly available. My goal is to help others learn
+              from and use the tools I create. I've built serveral libraries,
+              SDKs, CLI tools & BOTs, spanning web-frameworks, payment gateways,
               automation and bot development. You can find all my projects on
               GitHub.{" "}
               <Link
-                href="https://alxafrica.com"
+                href="https://github.com/adedoyin-emmanuel"
                 className="underline text-blue-500"
               >
                 Github - @adedoyin-emmanuel
