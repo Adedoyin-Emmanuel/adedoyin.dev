@@ -18,11 +18,10 @@ const ColoredLink = ({
     <Link
       href={href}
       target="_blank"
-      className={cn("text-blue-500 underline flex items-end", className)}
+      className={cn("text-blue-500 underline items-end inline-flex", className)}
       {...others}
     >
       {children}
-      <ArrowUpRight strokeWidth={2.5} className="h-5 w-5" />
     </Link>
   );
 };

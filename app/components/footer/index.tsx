@@ -12,15 +12,9 @@ const Footer = () => {
             href={"mailto:hi@adedoyinemmanuel.dev"}
             className="underline flex items-end"
           >
-            hi@adedoyinemmanuel.dev <ArrowUpRight className="h-5 w-5" />
-          </Link>{" "}
-          <Link
-            href={"mailto:adedoyinemmanuel@my.uopeople.edu"}
-            className="underline flex items-end"
-          >
-            adedoyinemmanuel@my.uopeople.edu{" "}
+            adedoyine535@gmail.com
             <ArrowUpRight className="h-5 w-5" />
-          </Link>
+          </Link>{" "}
         </span>
       </p>
 

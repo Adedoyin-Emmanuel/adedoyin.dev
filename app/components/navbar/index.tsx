@@ -1,11 +1,11 @@
 "use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Twitter, Linkedin, Github, X, ArrowUpRight } from "lucide-react";
 import { Drawer } from "vaul";
-import { Separator } from "@/components/ui/separator";
+import { usePathname } from "next/navigation";
+import { Twitter, Linkedin, Github, X } from "lucide-react";
+
 import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 const Navbar = () => {
   const pathname = usePathname();

@@ -1,12 +1,13 @@
 "use client";
-import { Playfair_Display } from "next/font/google";
-import React from "react";
-import { cn } from "@/lib/utils";
-import ColoredLink from "@/app/components/link";
+
 import gsap from "gsap";
-import Seo from "@/app/components/seo";
+import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { Playfair_Display } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+import ColoredLink from "@/app/components/link";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -24,58 +25,40 @@ const Home = () => {
 
   return (
     <div className="my-4">
-      <Seo
-        title="Home"
-        description="Engineering Seamless Experiences for the Digital Age"
-      />
       <br />
 
       <div className="content-section">
         <h1
           className={cn(playFairDisplay.className, "lg:text-[50px] text-3xl")}
         >
-          Engineering Seamless User Experiences.
+          Engineering Production-Ready Applications.
         </h1>
         <br />
         <br />
 
         <div className="lg:text-[20px] text-[15px]">
           <p>
-            I build Scalable Backend Systems, Engaging User Interfaces,
-            Intelligent Bots & Web Scrapers for Automation. Creator of{" "}
-            <span className="flex items-center gap-x-3 flex-wrap">
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/methane-cli">
-                Methane-Cli
-              </ColoredLink>
-              <ColoredLink href="https://fotograph.vercel.app">
-                Fotograph
-              </ColoredLink>
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/telebot">
-                Telebot
-              </ColoredLink>
-              <ColoredLink href="https://github.com/adedoyin-emmanuel/squad-js-sdk">
-                Squad-Js-SDK
-              </ColoredLink>
-
-              <ColoredLink href="https://codesharp.adedoyin.dev">
-                Codesharp
-              </ColoredLink>
-
-              <ColoredLink href="https://holytab.adedoyin.dev">
-                HolyTab
-              </ColoredLink>
-            </span>
+            Hi, I'm Adedoyin Emmanuel Adeniyi. I currently work at ({" "}
+            <ColoredLink href="https://nativelyai.com">Natively AI</ColoredLink>{" "}
+            , <ColoredLink href="https://lablab.ai">Lablab.ai</ColoredLink> ) as
+            a Software Engineer. Ex{" "}
+            <ColoredLink href="https://punch.cool">Punch Agency</ColoredLink>
           </p>
 
           <br />
           <p>
-            Software Engineer - Building scalable Backend Systems, Crafting
-            Engaging User Interfaces, Intelligent Bots & Web Scrapers for
-            Automation.
+            I enjoy solving problems by building impactful softwares. I'm
+            currently building{" "}
+            <ColoredLink href="https://lexicontract.com">
+              Lexicontract
+            </ColoredLink>{" "}
+            and <ColoredLink href="https://holytab.space">Holytab</ColoredLink>
           </p>
 
           <br />
-          <p>You can do great things from a small place.</p>
+          <p>
+            I strongly believe that you can do great things from a small place.
+          </p>
 
           <br />
 
