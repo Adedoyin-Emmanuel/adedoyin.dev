@@ -1,13 +1,10 @@
-"use client";
-
-import gsap from "gsap";
-import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import ColoredLink from "@/app/components/link";
+import GsapReveal from "@/app/components/gsap-reveal";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -15,19 +12,11 @@ const playFairDisplay = Playfair_Display({
 });
 
 const Home = () => {
-  React.useEffect(() => {
-    gsap.fromTo(
-      ".content-section",
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 2, ease: "power3.out" }
-    );
-  }, []);
-
   return (
     <div className="my-4">
       <br />
 
-      <div className="content-section">
+      <GsapReveal className="content-section">
         <h1
           className={cn(playFairDisplay.className, "lg:text-[50px] text-3xl")}
         >
@@ -41,18 +30,27 @@ const Home = () => {
             Hi, I'm Adedoyin Emmanuel Adeniyi. I currently work at ({" "}
             <ColoredLink href="https://nativelyai.com">Natively AI</ColoredLink>{" "}
             , <ColoredLink href="https://lablab.ai">Lablab.ai</ColoredLink> ) as
-            a Software Engineer. Ex{" "}
+            a Product Engineer & Technical Judge. Ex{" "}
             <ColoredLink href="https://punch.cool">Punch Agency</ColoredLink>
           </p>
 
           <br />
           <p>
-            I enjoy solving problems by building impactful softwares. I'm
-            currently building{" "}
-            <ColoredLink href="https://lexicontract.com">
-              Lexicontract
+            I'm currently building{" "}
+            <ColoredLink href="https://holycreed.app">Holy Creed</ColoredLink>{" "}
+            and maintaining my open source projects such as{" "}
+            <ColoredLink href="https://github.com/adedoyin-emmanuel/telebot">
+              Telebot
+            </ColoredLink>
+            ,{" "}
+            <ColoredLink href="https://leetbase.adedoyin.dev">
+              Leetbase
             </ColoredLink>{" "}
-            and <ColoredLink href="https://holytab.space">Holytab</ColoredLink>
+            and{" "}
+            <ColoredLink href="https://github.com/adedoyin-emmanuel/tsfluent">
+              Tsfluent
+            </ColoredLink>
+            .
           </p>
 
           <br />
@@ -68,7 +66,7 @@ const Home = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </GsapReveal>
     </div>
   );
 };

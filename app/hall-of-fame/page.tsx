@@ -1,12 +1,10 @@
-"use client";
-import gsap from "gsap";
-import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Playfair_Display } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import GsapReveal from "@/app/components/gsap-reveal";
 
 const playFairDisplay = Playfair_Display({
   weight: "500",
@@ -14,16 +12,8 @@ const playFairDisplay = Playfair_Display({
 });
 
 const HallOfFame = () => {
-  React.useEffect(() => {
-    gsap.fromTo(
-      ".content-section",
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 2, ease: "power3.out" }
-    );
-  }, []);
-
   return (
-    <div className="my-8 content-section">
+    <GsapReveal className="my-8 content-section">
       <h1
         className={cn(
           playFairDisplay.className,
@@ -61,32 +51,27 @@ const HallOfFame = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Professional Achievements</h2>
         <ul className="list-disc list-inside">
-          <li>
-            Software Engineer at{" ("}
-            <Link
-              href="https://nativelyai.com"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              NativelyAI
-            </Link>{" "}
-            ,{" "}
-            <Link
-              href="https://lablab.ai"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              LabLab.ai
-            </Link>
-            {")"}, Ex{" "}
-            <Link
-              href="https://punch.cool"
-              className="underline text-blue-500"
-              target="_blank"
-            >
-              {" "}
-              Punch Agency
-            </Link>
+          <li className="mb-6 list-none">
+            <div className="font-bold text-lg mb-2">
+              Product Engineer & Technical Judge @ {" "}
+              <Link href="https://nativelyai.com" className="underline text-blue-500" target="_blank">NativelyAI</Link>
+              {" "}&{" "}
+              <Link href="https://lablab.ai" className="underline text-blue-500" target="_blank">LabLab.ai</Link>
+            </div>
+            <ul className="list-disc list-inside space-y-2 pl-4">
+              <li>
+                <span className="font-medium text-foreground">Agentic Core Architectures:</span> Engineered autonomous state machines for task execution within <span className="italic">Builder</span>, enabling LLM agents to auto-start, self-assign, track, and complete full-stack features sequentially.
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Agent Behavior & Guardrails:</span> Designing alignment protocols to eliminate non-deterministic UI output, reducing streaming latency over broken sockets, and writing security rules to neutralize prompt injection and jailbreaks.
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Custom Design System Implementation:</span> Re-architected the layout engine for generated projects, shifting output away from generic code templates toward a standardized design token system.
+              </li>
+              <li>
+                <span className="font-medium text-foreground">Developer Relations & Technical Evaluation:</span> Serve as an official Hackathon Judge and engineering mentor at Lablab.ai, alongside leading DevRel hotfix responses for beta platform testers.
+              </li>
+            </ul>
           </li>
 
           <li>
@@ -161,38 +146,29 @@ const HallOfFame = () => {
         <h2 className="text-2xl font-bold mb-4">Open Source Contributions</h2>
         <ul className="list-disc list-inside">
           <li>
-            Creator{" "}
+            Creator of{" "}
             <Link
-              href="https://github.com/facebook/react"
-              className="underline text-blue-500"
-            >
-              Telebot
-            </Link>{" "}
-            — A Telegram bot starter kit built on Telegraf, streamlining
-            deployments to Vercel or Cloudflare Workers.
-          </li>
-
-          <li>
-            Maintainer of{" "}
-            <Link
-              href="https://github.com/adedoyin-emmanuel/squad-js-sdk"
-              className="underline text-blue-500"
-            >
-              Squad SDK
-            </Link>{" "}
-            — simplifying payment integration for developers.
-          </li>
-
-          <li>
-            Maintainer of{" "}
-            <Link
-              href="https://github.com/adedoyin-emmanuel/methane-cli"
+              href="https://github.com/adedoyin-emmanuel/telebot"
               className="underline text-blue-500"
               target="_blank"
             >
-              Methane CLI
-            </Link>
-            , a tool to streamline React/Next.js component creation.
+              Telebot
+            </Link>{" "}
+            — a Telegram bot starter kit built on Cloudflare Workers, so you can
+            ship a bot to production without the boilerplate.
+          </li>
+
+          <li>
+            Creator of{" "}
+            <Link
+              href="https://github.com/adedoyin-emmanuel/tsfluent"
+              className="underline text-blue-500"
+              target="_blank"
+            >
+              Tsfluent
+            </Link>{" "}
+            — a fluent Result type for TypeScript that makes handling success and
+            failure states clean and expressive.
           </li>
         </ul>
       </section>
@@ -202,52 +178,18 @@ const HallOfFame = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Testimonials</h2>
         <blockquote className="italic text-gray-600 border-l-4 pl-4">
-          "Adedoyin's tool{" "}
-          <Link
-            href="https://github.com/adedoyin-emmanuel/methane-cli"
-            className="underline text-blue-500"
-            target="_blank"
-          >
-            Methane CLI
-          </Link>{" "}
-          inspired the creation of{" "}
-          <Link
-            href={
-              "https://github.com/dolphjs/dolph-cli?tab=readme-ov-file#credit"
-            }
-            className="underline text-blue-500"
-            target="_blank"
-          >
-            {" "}
-            Dolph JS CLI."
-          </Link>
-          <span className="block mt-2 font-bold">— DolphJS Team</span>
+          "Emmanuel delivers consistently, every single time. He's the person you
+          can trust to build and fix things quickly."
+          <span className="block mt-2 font-bold">— Team Lead</span>
         </blockquote>
         <blockquote className="italic text-gray-600 border-l-4 pl-4 mt-4">
           "Emma consistently ships high-quality products quickly. A reliable
           asset to any team!"
-          <Link
-            href={"https://github.com/adedoyin-emmanuel/adedoyinemmanuel.dev"}
-            className="underline text-blue-500"
-            target="_blank"
-          >
-            {" "}
-            (I Built My V2 Portfolio in less than 12hrs)
-            <Link
-              target="_blank"
-              href="https://wakatime.com/badge/github/Adedoyin-Emmanuel/adedoyinemmanuel.dev"
-            >
-              <img
-                src="https://wakatime.com/badge/github/Adedoyin-Emmanuel/adedoyinemmanuel.dev.svg"
-                alt="wakatime"
-              />
-            </Link>
-          </Link>
           <span className="block mt-2 font-bold">— Project Lead</span>
         </blockquote>
         <p className="text-gray-600 mt-4">...and many more.</p>
       </section>
-    </div>
+    </GsapReveal>
   );
 };
 
